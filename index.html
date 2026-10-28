@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TBW Planning — ระบบวางแผนการผลิตไม้</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-icon">🏭</div>
+        <div>
+          <div class="brand-title">TBWOOD PLUS</div>
+          <div class="brand-sub">ระบบวางแผนการผลิต</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav-group">📊 แดชบอร์ด</div>
+        <button class="nav-item" data-view="dashboard">1 · แดชบอร์ดบริหาร</button>
+        <button class="nav-item" data-view="dash-po">2 · แดชบอร์ด PO/WO</button>
+        <button class="nav-item" data-view="dash-proc">3 · แดชบอร์ดแปรรูป</button>
+        <button class="nav-item" data-view="dash-assy">4 · แดชบอร์ดประกอบ</button>
+
+        <div class="nav-group">📥 วางแผนและสั่งผลิต</div>
+        <button class="nav-item" data-view="po">5 · รับออเดอร์ PO</button>
+        <button class="nav-item" data-view="wo">6 · ใบสั่งผลิต WO</button>
+        <button class="nav-item" data-view="woodwait">7 · สถานะรอไม้ดิบ</button>
+        <button class="nav-item" data-view="queue">8 · จัดคิวเครื่องจักร</button>
+        <button class="nav-item" data-view="heatmap">9 · ฮีตแมปและปฏิทิน</button>
+
+        <div class="nav-group">📝 ผลิตจริง</div>
+        <button class="nav-item" data-view="proc">10 · ผลิตจริงแปรรูป</button>
+        <button class="nav-item" data-view="assy">11 · ผลิตจริงประกอบ</button>
+
+        <div class="nav-group">🗂 ฐานข้อมูล</div>
+        <button class="nav-item" data-view="products">12 · สินค้า FG</button>
+        <button class="nav-item" data-view="bom">13 · โครงสร้าง BOM</button>
+        <button class="nav-item" data-view="machines">14 · ตั้งค่าเครื่องจักร</button>
+        <button class="nav-item" data-view="downtime">15 · แจ้งซ่อมเครื่องจักร</button>
+        <button class="nav-item" data-view="settings">16 · ตั้งค่าระบบ</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="btn-ghost" id="btn-reset">↺ รีเซ็ตข้อมูลตัวอย่าง</button>
+        <button class="btn-ghost" id="btn-export">⤓ ส่งออกข้อมูล JSON</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <h1 id="page-title">แดชบอร์ดบริหาร</h1>
+        <div class="topbar-right">
+          <span class="topbar-date" id="today-date"></span>
+        </div>
+      </header>
+      <section id="content" class="content"></section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop hidden" id="modal">
+    <div class="modal">
+      <div class="modal-head"><h2 id="modal-title"></h2><button class="modal-close" data-close>✕</button></div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="js/store.js"></script>
+  <script src="js/calc.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/views-core.js"></script>
+  <script src="js/views-plan.js"></script>
+  <script src="js/views-dash.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
